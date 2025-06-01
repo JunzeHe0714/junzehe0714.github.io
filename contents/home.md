@@ -5,7 +5,7 @@
 
  I’m currently an undergraduate student at Central South University, and my major is statistics.
 #### Email
-junzehe@csu.edu.cn
+junzehe@csu.edu.cn\
 junzehe0714@gmail.com
 
 #### Education
