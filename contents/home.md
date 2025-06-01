@@ -1,9 +1,4 @@
-
-
-[![senli1073](https://img.shields.io/badge/senli1073-github-blue?logo=github)](https://github.com/senli1073)
-
-
- I’m currently an undergraduate student at Central South University, and my major is statistics.
+I’m currently an undergraduate student at Central South University, and my major is statistics.
 #### Email
 junzehe@csu.edu.cn\
 junzehe0714@gmail.com
