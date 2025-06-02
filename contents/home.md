@@ -1,4 +1,9 @@
-I’m currently an undergraduate student at Central South University, and my major is statistics.The picture on the upper right corner was taken in August 2024 at the Super Nintendo World in Universal Studios Japan. It is very interesting there! I'm standing inside that green chimney. LOL. Can you find me?
+I’m currently an undergraduate student at Central South University, and my major is statistics.T
+he picture on the upper right corner was taken in August 2024 at the Super Nintendo World in Universal Studios Japan. 
+It is very interesting there! I'm standing inside that green chimney. LOL. Can you find me?
+
+
+
 #### Email
 junzehe@csu.edu.cn\
 junzehe0714@gmail.com
