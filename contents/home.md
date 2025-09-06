@@ -2,6 +2,9 @@ I’m currently an undergraduate student at Central South University, and my maj
 picture on the upper right corner was taken in August 2024 at the Super Nintendo World in Universal Studios Japan. 
 It is very interesting there! I'm standing inside that green chimney. 
 
+I am very pleased to have entered the research field under the guidance of Professor Jinbiao Wu(https://faculty.csu.edu.cn/wujinbiao/zh_CN/index.htm)  from the School of Mathematics and Statistics, Central South University, 
+and our main research focuses on issues related to operations research and optimization.
+
 
 
 #### Email
