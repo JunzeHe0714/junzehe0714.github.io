@@ -1,4 +1,6 @@
-I’m currently an undergraduate student at Central South University, and my major is statistics.
+Hi, My name is Junze He. I am an incoming PhD student at the Department of Computer Science, City University of Hong Kong, starting in September 2026, supervised by [Prof. Ziye Ma](https://gavenma.github.io).
+
+Currently, I am an undergraduate student at Central South University, and my major is statistics.
 
 During my sophomore year, I am grateful to have begun my research journey under the guidance of Professor [Jinbiao Wu](https://faculty.csu.edu.cn/wujinbiao/zh_CN/index.htm) at the School of Mathematics and Statistics, Central South University, 
  with a primary focus on operations research and optimization.
