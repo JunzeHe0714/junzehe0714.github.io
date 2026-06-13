@@ -1,0 +1,72 @@
+{
+  "site": {
+    "title": "Junze He",
+    "description": "Personal academic homepage of Junze He.",
+    "url": "https://junzehe0714.github.io/",
+    "language": "en"
+  },
+  "profile": {
+    "name": "Junze He",
+    "name_cn": "何俊泽",
+    "role": "Incoming PhD Student in Computer Science",
+    "affiliation": "City University of Hong Kong",
+    "photo": "static/assets/img/photo.png",
+    "email": [
+      "junzehe@csu.edu.cn",
+      "junzehe0714@gmail.com"
+    ],
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/JunzeHe0714"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/search/?query=Junze+He&searchtype=author"
+      }
+    ]
+  },
+  "education": [
+    {
+      "degree": "PhD in Computer Science",
+      "institution": "City University of Hong Kong",
+      "period": "Sep. 2026 -",
+      "details": "Incoming student, supervised by Prof. Ziye Ma"
+    },
+    {
+      "degree": "B.E. in Statistics",
+      "institution": "Central South University",
+      "period": "2022 - 2026",
+      "details": "School of Mathematics and Statistics"
+    }
+  ],
+  "research_interests": [
+    "Statistical Machine Learning",
+    "Optimization Problems",
+    "Artificial Intelligence"
+  ],
+  "news": [
+    {
+      "date": "2026-02-23",
+      "text": "I have accepted the PhD offer from the Department of Computer Science, CityUHK."
+    },
+    {
+      "date": "2025-06-01",
+      "text": "My personal website has been launched. A good start."
+    }
+  ],
+  "publications": [
+    {
+      "title": "Escaping Local Minima Provably in Non-convex Matrix Sensing: A Deterministic Framework via Simulated Lifting",
+      "authors": "Tianqi Shen, Jinji Yang, Junze He, Kunhan Gao, Ziye Ma",
+      "venue": "Preprint",
+      "year": "2026",
+      "links": [
+        {
+          "label": "arXiv",
+          "url": "https://arxiv.org/abs/2602.05887"
+        }
+      ]
+    }
+  ]
+}
