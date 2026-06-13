@@ -50,15 +50,6 @@ def format_date(value: str) -> str:
         return value
 
 
-def link_buttons(items: list[dict[str, str]]) -> str:
-    links = []
-    for item in items:
-        links.append(
-            f'<a class="text-link" href="{esc(item["url"])}" target="_blank" rel="noreferrer">{esc(item["label"])}</a>'
-        )
-    return "\n".join(links)
-
-
 def render(data: dict, profile_html: str) -> str:
     site = data["site"]
     profile = data["profile"]
@@ -134,13 +125,8 @@ def render(data: dict, profile_html: str) -> str:
   <main>
     <section class="section home" id="home">
       <div class="home-main">
-        <p class="eyebrow">{esc(profile["role"])}</p>
         <h1>{esc(profile["name"])} <span>{esc(profile["name_cn"])}</span></h1>
-        <p class="affiliation">{esc(profile["affiliation"])}</p>
         <div class="bio">{profile_html}</div>
-        <div class="inline-links">
-          {link_buttons(profile["links"])}
-        </div>
       </div>
       <aside class="portrait-card">
         <img src="{esc(profile["photo"])}" alt="Portrait of {esc(profile["name"])}">
@@ -174,7 +160,7 @@ def render(data: dict, profile_html: str) -> str:
   </main>
 
   <footer>
-    <p>© {datetime.now().year} {esc(profile["name"])}. All rights reserved.</p>
+    <p>&copy; {datetime.now().year} {esc(profile["name"])}. All rights reserved.</p>
   </footer>
 </body>
 </html>
