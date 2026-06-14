@@ -136,7 +136,9 @@ def render(data: dict, profile_html: str) -> str:
 </head>
 <body>
   <canvas id="fluid-canvas" aria-hidden="true"></canvas>
-  <div class="atmosphere" aria-hidden="true"></div>
+  <div class="glass-atmosphere" aria-hidden="true"></div>
+  <div class="glass-sheen" aria-hidden="true"></div>
+  <div class="glass-lens" aria-hidden="true"></div>
 
   <header class="site-header">
     <a class="brand" href="#home">{esc(profile["name"])}</a>
