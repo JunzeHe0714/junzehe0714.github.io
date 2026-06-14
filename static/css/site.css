@@ -238,6 +238,13 @@
       margin-bottom: 16px;
     }
 
+    .profile-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
     .portrait-stage {
       position: relative;
       width: min(100%, 320px);
@@ -285,7 +292,7 @@
       width: 100%;
       aspect-ratio: 4 / 5;
       object-fit: cover;
-      object-position: center top;
+      object-position: center 34%;
       border: 1px solid rgba(24, 30, 28, 0.12);
       border-radius: 12px;
       box-shadow: 0 1px 0 rgba(255, 255, 255, 0.55);
@@ -389,6 +396,13 @@
       display: grid;
       gap: 4px;
       overflow-wrap: anywhere;
+    }
+
+    .email-note {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 620;
     }
 
     .item-list,

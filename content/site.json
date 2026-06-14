@@ -10,19 +10,16 @@
     "name_cn": "何俊泽",
     "role": "Incoming PhD Student in Computer Science",
     "affiliation": "City University of Hong Kong",
-    "photo": "static/assets/img/photo.png",
+    "photo": "static/assets/img/portrait-sunglasses.jpg",
     "email": [
       "junzehe@csu.edu.cn",
       "junzehe0714@gmail.com"
     ],
-    "links": [
+    "email_note": "Feel free to reach out!",
+    "profile_links": [
       {
-        "label": "GitHub",
-        "url": "https://github.com/JunzeHe0714"
-      },
-      {
-        "label": "arXiv",
-        "url": "https://arxiv.org/search/?query=Junze+He&searchtype=author"
+        "label": "Google Scholar",
+        "url": "https://scholar.google.com/citations?user=xWvGcBMAAAAJ"
       }
     ]
   },

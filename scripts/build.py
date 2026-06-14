@@ -72,10 +72,35 @@ def paper_link(link: dict[str, str]) -> str:
     return f'<a class="text-link" href="{url}" target="_blank" rel="noreferrer">{label}</a>'
 
 
+def profile_link(link: dict[str, str]) -> str:
+    label = esc(link["label"])
+    url = esc(link["url"])
+    if label.lower() == "google scholar":
+        return f"""
+        <a class="text-link" href="{url}" target="_blank" rel="noreferrer" aria-label="Open Google Scholar profile">
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M4 10.2 12 5l8 5.2-8 5.2z"></path>
+            <path d="M7.2 12.3v4.1c1.1 1.2 2.7 1.9 4.8 1.9s3.7-.7 4.8-1.9v-4.1"></path>
+            <path d="M20 10.2v5"></path>
+          </svg>
+          <span>Google Scholar</span>
+          <svg class="external-mark" aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M7 17 17 7"></path>
+            <path d="M9 7h8v8"></path>
+          </svg>
+        </a>
+        """
+    return f'<a class="text-link" href="{url}" target="_blank" rel="noreferrer">{label}</a>'
+
+
 def render(data: dict, profile_html: str) -> str:
     site = data["site"]
     profile = data["profile"]
     email_links = "".join(f'<a href="mailto:{esc(email)}">{esc(email)}</a>' for email in profile["email"])
+    email_note = esc(profile.get("email_note", ""))
+    email_note_html = f'<p class="email-note">{email_note}</p>' if email_note else ""
+    profile_links = "".join(profile_link(link) for link in profile.get("profile_links", []))
+    profile_links_block = f'<div class="profile-links" aria-label="Academic profiles">{profile_links}</div>' if profile_links else ""
     interests = "".join(f"<li>{esc(item)}</li>" for item in data["research_interests"])
 
     education = "".join(
@@ -155,7 +180,7 @@ def render(data: dict, profile_html: str) -> str:
       <div class="hero">
         <div class="home-main">
           <h1>{esc(profile["name"])} <span>{esc(profile["name_cn"])}</span></h1>
-          <div class="bio">{profile_html}</div>
+          <div class="bio">{profile_html}{profile_links_block}</div>
         </div>
         <aside class="portrait-stage">
           <img src="{esc(profile["photo"])}" alt="Portrait of {esc(profile["name"])}">
@@ -168,6 +193,7 @@ def render(data: dict, profile_html: str) -> str:
       <div class="meta-block">
         <h2>Email</h2>
         <div class="email-list">{email_links}</div>
+        {email_note_html}
       </div>
       <div class="meta-block">
         <h2>Education</h2>
