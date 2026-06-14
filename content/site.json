@@ -44,18 +44,18 @@
   ],
   "news": [
     {
-      "date": "2026-02-23",
+      "date": "2026.02.23",
       "text": "I have accepted the PhD offer from the Department of Computer Science, CityUHK."
     },
     {
-      "date": "2025-06-01",
+      "date": "2025.06.01",
       "text": "My personal website has been launched. A good start."
     }
   ],
   "publications": [
     {
       "title": "Escaping Local Minima Provably in Non-convex Matrix Sensing: A Deterministic Framework via Simulated Lifting",
-      "authors": "Tianqi Shen, Jinji Yang, Junze He, Kunhan Gao, Ziye Ma",
+      "authors": "Tianqi Shen, Jinji Yang, Junze He, Kunhan Gao, Zeyu Zheng, Ziye Ma",
       "venue": "Preprint",
       "year": "",
       "links": [
