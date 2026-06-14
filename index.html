@@ -12,6 +12,9 @@
   <link rel="stylesheet" href="static/css/site.css">
 </head>
 <body>
+  <canvas id="fluid-canvas" aria-hidden="true"></canvas>
+  <div class="atmosphere" aria-hidden="true"></div>
+
   <header class="site-header">
     <a class="brand" href="#home">Junze He</a>
     <nav aria-label="Primary">
@@ -21,20 +24,24 @@
     </nav>
   </header>
 
+  <div id="smooth-content">
   <main>
-    <section class="section home" id="home">
-      <div class="home-main">
-        <h1>Junze He <span>何俊泽</span></h1>
-        <div class="bio"><p>I am an incoming PhD student in the Department of Computer Science at City University of Hong Kong, starting in September 2026. I will be supervised by <a href="https://gavenma.github.io" target="_blank" rel="noreferrer">Prof. Ziye Ma</a>.</p>
+    <section class="hero-wrap section" id="home">
+      <div class="hero">
+        <div class="home-main">
+          <h1>Junze He <span>何俊泽</span></h1>
+          <div class="bio"><p>I am an incoming PhD student in the Department of Computer Science at City University of Hong Kong, starting in September 2026. I will be supervised by <a href="https://gavenma.github.io" target="_blank" rel="noreferrer">Prof. Ziye Ma</a>.</p>
 <p>I am currently an undergraduate student majoring in Statistics at Central South University. During my sophomore year, I began my research journey under the guidance of <a href="https://faculty.csu.edu.cn/wujinbiao/zh_CN/index.htm" target="_blank" rel="noreferrer">Prof. Jinbiao Wu</a> at the School of Mathematics and Statistics, Central South University, with a primary focus on operations research and optimization.</p>
 <p>My research interests lie at the intersection of statistical machine learning, optimization problems, and artificial intelligence.</p></div>
+        </div>
+        <aside class="portrait-stage">
+          <img src="static/assets/img/photo.png" alt="Portrait of Junze He">
+        </aside>
+        <div class="scroll-cue">More</div>
       </div>
-      <aside class="portrait-card">
-        <img src="static/assets/img/photo.png" alt="Portrait of Junze He">
-      </aside>
     </section>
 
-    <section class="section home-meta" aria-label="Home details">
+    <section class="section home-meta reveal" aria-label="Home details">
       <div class="meta-block">
         <h2>Email</h2>
         <div class="email-list"><a href="mailto:junzehe@csu.edu.cn">junzehe@csu.edu.cn</a><a href="mailto:junzehe0714@gmail.com">junzehe0714@gmail.com</a></div>
@@ -43,7 +50,7 @@
         <h2>Education</h2>
         <div class="item-list">
         <article class="compact-item">
-          <div class="item-date">2026.9 -</div>
+          <div class="item-date">2026.09-</div>
           <div>
             <h3>PhD in Computer Science</h3>
             <p>City University of Hong Kong</p>
@@ -52,7 +59,7 @@
         </article>
         
         <article class="compact-item">
-          <div class="item-date">2022.9 - 2026.6</div>
+          <div class="item-date">2022.09-2026.06</div>
           <div>
             <h3>B.E. in Statistics</h3>
             <p>Central South University</p>
@@ -67,7 +74,7 @@
       </div>
     </section>
 
-    <section class="section content-section" id="news">
+    <section class="section content-section reveal" id="news">
       <h2>News</h2>
       <div class="item-list">
         <article class="compact-item">
@@ -82,7 +89,7 @@
         </div>
     </section>
 
-    <section class="section content-section" id="publications">
+    <section class="section content-section reveal" id="publications">
       <h2>Publications</h2>
       <div class="publication-list">
         <article class="publication">
@@ -90,8 +97,22 @@
           <div>
             <h3>Escaping Local Minima Provably in Non-convex Matrix Sensing: A Deterministic Framework via Simulated Lifting</h3>
             <p class="authors">Tianqi Shen, Jinji Yang, <strong>Junze He</strong>, Kunhan Gao, Ziye Ma</p>
-            <p>Preprint</p>
-            <div class="inline-links"><a class="text-link" href="https://arxiv.org/abs/2602.05887" target="_blank" rel="noreferrer">arXiv</a></div>
+            <p class="venue-line">Preprint</p>
+            <div class="inline-links">
+        <a class="text-link" href="https://arxiv.org/abs/2602.05887" target="_blank" rel="noreferrer" aria-label="Open arXiv preprint">
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M7 3.8h6.2L18 8.6v11.6H7z"></path>
+            <path d="M13 4v5h5"></path>
+            <path d="M9.8 13.4h5.4"></path>
+            <path d="M9.8 16.4h4"></path>
+          </svg>
+          <span>arXiv</span>
+          <svg class="external-mark" aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M7 17 17 7"></path>
+            <path d="M9 7h8v8"></path>
+          </svg>
+        </a>
+        </div>
           </div>
         </article>
         </div>
@@ -101,5 +122,8 @@
   <footer>
     <p>&copy; 2026 Junze He. All rights reserved.</p>
   </footer>
+  </div>
+
+  <script type="module" src="static/js/site.js"></script>
 </body>
 </html>

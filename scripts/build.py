@@ -50,6 +50,28 @@ def format_date(value: str) -> str:
         return value
 
 
+def paper_link(link: dict[str, str]) -> str:
+    label = esc(link["label"])
+    url = esc(link["url"])
+    if label.lower() == "arxiv":
+        return f"""
+        <a class="text-link" href="{url}" target="_blank" rel="noreferrer" aria-label="Open arXiv preprint">
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M7 3.8h6.2L18 8.6v11.6H7z"></path>
+            <path d="M13 4v5h5"></path>
+            <path d="M9.8 13.4h5.4"></path>
+            <path d="M9.8 16.4h4"></path>
+          </svg>
+          <span>arXiv</span>
+          <svg class="external-mark" aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M7 17 17 7"></path>
+            <path d="M9 7h8v8"></path>
+          </svg>
+        </a>
+        """
+    return f'<a class="text-link" href="{url}" target="_blank" rel="noreferrer">{label}</a>'
+
+
 def render(data: dict, profile_html: str) -> str:
     site = data["site"]
     profile = data["profile"]
@@ -82,10 +104,7 @@ def render(data: dict, profile_html: str) -> str:
 
     publications = ""
     for pub in data["publications"]:
-        pub_links = "".join(
-            f'<a class="text-link" href="{esc(link["url"])}" target="_blank" rel="noreferrer">{esc(link["label"])}</a>'
-            for link in pub.get("links", [])
-        )
+        pub_links = "".join(paper_link(link) for link in pub.get("links", []))
         authors = esc(pub["authors"]).replace("Junze He", "<strong>Junze He</strong>")
         publications += f"""
         <article class="publication">
@@ -93,7 +112,7 @@ def render(data: dict, profile_html: str) -> str:
           <div>
             <h3>{esc(pub["title"])}</h3>
             <p class="authors">{authors}</p>
-            <p>{esc(pub["venue"])}</p>
+            <p class="venue-line">{esc(pub["venue"])}</p>
             <div class="inline-links">{pub_links}</div>
           </div>
         </article>
@@ -113,6 +132,9 @@ def render(data: dict, profile_html: str) -> str:
   <link rel="stylesheet" href="static/css/site.css">
 </head>
 <body>
+  <canvas id="fluid-canvas" aria-hidden="true"></canvas>
+  <div class="atmosphere" aria-hidden="true"></div>
+
   <header class="site-header">
     <a class="brand" href="#home">{esc(profile["name"])}</a>
     <nav aria-label="Primary">
@@ -122,18 +144,22 @@ def render(data: dict, profile_html: str) -> str:
     </nav>
   </header>
 
+  <div id="smooth-content">
   <main>
-    <section class="section home" id="home">
-      <div class="home-main">
-        <h1>{esc(profile["name"])} <span>{esc(profile["name_cn"])}</span></h1>
-        <div class="bio">{profile_html}</div>
+    <section class="hero-wrap section" id="home">
+      <div class="hero">
+        <div class="home-main">
+          <h1>{esc(profile["name"])} <span>{esc(profile["name_cn"])}</span></h1>
+          <div class="bio">{profile_html}</div>
+        </div>
+        <aside class="portrait-stage">
+          <img src="{esc(profile["photo"])}" alt="Portrait of {esc(profile["name"])}">
+        </aside>
+        <div class="scroll-cue">More</div>
       </div>
-      <aside class="portrait-card">
-        <img src="{esc(profile["photo"])}" alt="Portrait of {esc(profile["name"])}">
-      </aside>
     </section>
 
-    <section class="section home-meta" aria-label="Home details">
+    <section class="section home-meta reveal" aria-label="Home details">
       <div class="meta-block">
         <h2>Email</h2>
         <div class="email-list">{email_links}</div>
@@ -148,12 +174,12 @@ def render(data: dict, profile_html: str) -> str:
       </div>
     </section>
 
-    <section class="section content-section" id="news">
+    <section class="section content-section reveal" id="news">
       <h2>News</h2>
       <div class="item-list">{news}</div>
     </section>
 
-    <section class="section content-section" id="publications">
+    <section class="section content-section reveal" id="publications">
       <h2>Publications</h2>
       <div class="publication-list">{publications}</div>
     </section>
@@ -162,6 +188,9 @@ def render(data: dict, profile_html: str) -> str:
   <footer>
     <p>&copy; {datetime.now().year} {esc(profile["name"])}. All rights reserved.</p>
   </footer>
+  </div>
+
+  <script type="module" src="static/js/site.js"></script>
 </body>
 </html>
 """
