@@ -106,9 +106,12 @@ def render(data: dict, profile_html: str) -> str:
     for pub in data["publications"]:
         pub_links = "".join(paper_link(link) for link in pub.get("links", []))
         authors = esc(pub["authors"]).replace("Junze He", "<strong>Junze He</strong>")
+        pub_year = esc(pub.get("year", ""))
+        publication_class = "publication" if pub_year else "publication publication-no-date"
+        year_column = f'<div class="item-date">{pub_year}</div>' if pub_year else ""
         publications += f"""
-        <article class="publication">
-          <div class="item-date">{esc(pub["year"])}</div>
+        <article class="{publication_class}">
+          {year_column}
           <div>
             <h3>{esc(pub["title"])}</h3>
             <p class="authors">{authors}</p>

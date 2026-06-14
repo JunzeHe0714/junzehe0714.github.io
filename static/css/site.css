@@ -336,6 +336,10 @@
       backdrop-filter: blur(14px);
     }
 
+    .publication-no-date {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
     .publication h3 {
       max-width: 820px;
       font-size: 17px;
@@ -489,6 +493,24 @@
     }
 
     @media (max-width: 780px) {
+      body {
+        background:
+          linear-gradient(180deg, rgba(251, 250, 246, 0.94), rgba(251, 250, 246, 0.99) 62rem),
+          var(--bg);
+      }
+
+      #fluid-canvas {
+        opacity: 0.94;
+      }
+
+      .atmosphere {
+        background:
+          linear-gradient(180deg, rgba(251, 250, 246, 0.10), rgba(251, 250, 246, 0.48)),
+          radial-gradient(ellipse at 18% 12%, rgba(44, 115, 104, 0.14), transparent 19rem),
+          radial-gradient(ellipse at 88% 58%, rgba(162, 112, 70, 0.11), transparent 18rem);
+        opacity: 0.74;
+      }
+
       .site-header {
         align-items: flex-start;
         flex-direction: column;
@@ -537,6 +559,12 @@
 
       .home-meta {
         grid-template-columns: 1fr;
+      }
+
+      .home-meta,
+      .content-section {
+        background: rgba(251, 250, 246, 0.32);
+        backdrop-filter: blur(1.5px);
       }
 
       .compact-item,
