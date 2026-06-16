@@ -33,4 +33,5 @@ Then open <http://127.0.0.1:4173/>.
 - `content/site.json`: structured academic content.
 - `scripts/build.py`: generator for `index.html`.
 - `static/css/site.css`: visual style.
-- `static/assets/img/photo.png`: portrait.
+- `static/assets/img/`: portrait and image assets.
+- `robots.txt` and `sitemap.xml`: generated SEO discovery files.

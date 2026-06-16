@@ -5,6 +5,7 @@ import json
 import re
 from datetime import datetime
 from pathlib import Path
+from urllib.parse import urljoin
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -48,6 +49,15 @@ def format_date(value: str) -> str:
         return datetime.strptime(value, "%Y-%m-%d").strftime("%b %d, %Y")
     except ValueError:
         return value
+
+
+def absolute_url(base_url: str, path: str) -> str:
+    return urljoin(base_url, path)
+
+
+def json_script(data: dict) -> str:
+    payload = json.dumps(data, ensure_ascii=False, indent=2)
+    return f'<script type="application/ld+json">\n{payload}\n  </script>'
 
 
 def paper_link(link: dict[str, str]) -> str:
@@ -96,6 +106,33 @@ def profile_link(link: dict[str, str]) -> str:
 def render(data: dict, profile_html: str) -> str:
     site = data["site"]
     profile = data["profile"]
+    site_url = site["url"].rstrip("/") + "/"
+    image_url = absolute_url(site_url, profile["photo"])
+    keywords = ", ".join(site.get("keywords", []))
+    keywords_meta = f'  <meta name="keywords" content="{esc(keywords)}">\n' if keywords else ""
+    same_as = profile.get("same_as", [])
+    person_schema = {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": profile["name"],
+        "alternateName": [profile["name_cn"], profile.get("username", ""), "junzehe"],
+        "url": site_url,
+        "image": image_url,
+        "jobTitle": profile["role"],
+        "affiliation": {
+            "@type": "CollegeOrUniversity",
+            "name": profile["affiliation"],
+        },
+        "alumniOf": [
+            {
+                "@type": "CollegeOrUniversity",
+                "name": "Central South University",
+            }
+        ],
+        "email": [f"mailto:{email}" for email in profile["email"]],
+        "sameAs": same_as,
+        "knowsAbout": data["research_interests"],
+    }
     email_links = "".join(f'<a href="mailto:{esc(email)}">{esc(email)}</a>' for email in profile["email"])
     email_note = esc(profile.get("email_note", ""))
     email_note_html = f'<p class="email-note">{email_note}</p>' if email_note else ""
@@ -152,12 +189,25 @@ def render(data: dict, profile_html: str) -> str:
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="{esc(site["description"])}">
+  <meta name="author" content="{esc(profile["name"])}">
+  <meta name="robots" content="index, follow">
+{keywords_meta}  <link rel="canonical" href="{esc(site_url)}">
   <meta property="og:title" content="{esc(site["title"])}">
   <meta property="og:description" content="{esc(site["description"])}">
-  <meta property="og:url" content="{esc(site["url"])}">
+  <meta property="og:url" content="{esc(site_url)}">
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="{esc(profile["name"])}">
+  <meta property="og:image" content="{esc(image_url)}">
+  <meta property="profile:first_name" content="Junze">
+  <meta property="profile:last_name" content="He">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{esc(site["title"])}">
+  <meta name="twitter:description" content="{esc(site["description"])}">
+  <meta name="twitter:image" content="{esc(image_url)}">
   <title>{esc(site["title"])}</title>
   <link rel="icon" href="static/assets/favicon.ico">
   <link rel="stylesheet" href="static/css/site.css">
+  {json_script(person_schema)}
 </head>
 <body>
   <canvas id="fluid-canvas" aria-hidden="true"></canvas>
@@ -231,6 +281,24 @@ def main() -> None:
     data = json.loads((CONTENT / "site.json").read_text(encoding="utf-8"))
     profile_html = markdown_to_html((CONTENT / "profile.md").read_text(encoding="utf-8"))
     (ROOT / "index.html").write_text(render(data, profile_html), encoding="utf-8", newline="\n")
+    site_url = data["site"]["url"].rstrip("/") + "/"
+    (ROOT / "robots.txt").write_text(
+        f"User-agent: *\nAllow: /\n\nSitemap: {site_url}sitemap.xml\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+    today = datetime.now().strftime("%Y-%m-%d")
+    sitemap = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{esc(site_url)}</loc>
+    <lastmod>{today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
+"""
+    (ROOT / "sitemap.xml").write_text(sitemap, encoding="utf-8", newline="\n")
 
 
 if __name__ == "__main__":
