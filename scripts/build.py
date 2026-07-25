@@ -287,12 +287,12 @@ def main() -> None:
         encoding="utf-8",
         newline="\n",
     )
-    today = datetime.now().strftime("%Y-%m-%d")
+    lastmod = data["site"].get("lastmod", "2026-07-25")
     sitemap = f"""<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>{esc(site_url)}</loc>
-    <lastmod>{today}</lastmod>
+    <lastmod>{esc(lastmod)}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
