@@ -1,6 +1,10 @@
-# Junze He's Academic Homepage
+# Junze He | 何俊泽 | junzehe0714
 
-This repository powers <https://junzehe0714.github.io/>.
+This repository powers the official academic homepage of Junze He (何俊泽):
+
+<https://junzehe0714.github.io/>
+
+Junze He is an incoming PhD student in Computer Science at City University of Hong Kong, with research interests in statistical machine learning, optimization, and artificial intelligence.
 
 The site keeps the original homepage modules: `HOME`, `NEWS`, and `PUBLICATIONS`. Content is stored in simple files and `index.html` is generated from them.
 
