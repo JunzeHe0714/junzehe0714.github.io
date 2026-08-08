@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "Junze He | 何俊泽",
-    "description": "Junze He (何俊泽, junzehe0714) is an incoming PhD student in Computer Science at City University of Hong Kong, interested in statistical machine learning, optimization, and artificial intelligence.",
+    "description": "Junze He (何俊泽, junzehe0714) is a first-year PhD student in Computer Science at City University of Hong Kong, interested in statistical machine learning, optimization, and artificial intelligence.",
     "url": "https://junzehe0714.github.io/",
     "language": "en",
     "lastmod": "2026-07-25",
@@ -21,7 +21,7 @@
     "name": "Junze He",
     "name_cn": "何俊泽",
     "username": "junzehe0714",
-    "role": "Incoming PhD Student in Computer Science",
+    "role": "PhD Student in Computer Science",
     "affiliation": "City University of Hong Kong",
     "photo": "static/assets/img/portrait-sunglasses.jpg",
     "email": [
@@ -46,7 +46,7 @@
       "degree": "PhD in Computer Science",
       "institution": "City University of Hong Kong",
       "period": "2026.09-",
-      "details": "Incoming student, supervised by Prof. Ziye Ma"
+      "details": "Supervised by Prof. Ziye Ma"
     },
     {
       "degree": "B.E. in Statistics",
