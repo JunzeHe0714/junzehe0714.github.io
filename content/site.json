@@ -1,10 +1,10 @@
 {
   "site": {
     "title": "Junze He | 何俊泽",
-    "description": "Junze He (何俊泽, junzehe0714) is a first-year PhD student in Computer Science at City University of Hong Kong, interested in statistical machine learning, optimization, and artificial intelligence.",
+    "description": "Junze He (何俊泽, junzehe0714) is a first-year PhD student in Computer Science at City University of Hong Kong, interested in machine learning, optimization, and deep learning.",
     "url": "https://junzehe0714.github.io/",
     "language": "en",
-    "lastmod": "2026-07-25",
+    "lastmod": "2026-10-07",
     "keywords": [
       "Junze He",
       "何俊泽",
@@ -12,9 +12,9 @@
       "junzehe0714",
       "City University of Hong Kong",
       "Central South University",
-      "statistical machine learning",
+      "machine learning",
       "optimization",
-      "artificial intelligence"
+      "deep learning"
     ]
   },
   "profile": {
@@ -56,9 +56,9 @@
     }
   ],
   "research_interests": [
-    "Statistical Machine Learning",
-    "Optimization Problems",
-    "Artificial Intelligence"
+    "Machine Learning",
+    "Optimization",
+    "Deep Learning"
   ],
   "news": [
     {
@@ -71,6 +71,18 @@
     }
   ],
   "publications": [
+    {
+      "title": "Understanding the Weight Averaging Mechanism in LLM Training for Post-Training Quantization",
+      "authors": "Hanzhang Wang, Tianqi Shen, Zonglin Liu, Junze He, Difan Zou, Ziye Ma",
+      "venue": "Preprint",
+      "year": "",
+      "links": [
+        {
+          "label": "arXiv",
+          "url": "https://arxiv.org/abs/2610.05329"
+        }
+      ]
+    },
     {
       "title": "Escaping Local Minima Provably in Non-convex Matrix Sensing: A Deterministic Framework via Simulated Lifting",
       "authors": "Tianqi Shen, Jinji Yang, Junze He, Kunhan Gao, Zeyu Zheng, Ziye Ma",

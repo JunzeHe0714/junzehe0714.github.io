@@ -170,10 +170,10 @@ def render(data: dict, profile_html: str) -> str:
         authors = esc(pub["authors"]).replace("Junze He", "<strong>Junze He</strong>")
         pub_year = esc(pub.get("year", ""))
         publication_class = "publication" if pub_year else "publication publication-no-date"
-        year_column = f'<div class="item-date">{pub_year}</div>' if pub_year else ""
+        year_column = f'          <div class="item-date">{pub_year}</div>' if pub_year else ""
         publications += f"""
         <article class="{publication_class}">
-          {year_column}
+{year_column}
           <div>
             <h3>{esc(pub["title"])}</h3>
             <p class="authors">{authors}</p>
@@ -181,7 +181,7 @@ def render(data: dict, profile_html: str) -> str:
             <div class="inline-links">{pub_links}</div>
           </div>
         </article>
-        """
+        """.rstrip() + "\n"
 
     return f"""<!doctype html>
 <html lang="{esc(site["language"])}">

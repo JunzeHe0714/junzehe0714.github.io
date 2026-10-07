@@ -2,4 +2,4 @@ I am a first-year PhD student in the Department of Computer Science at City Univ
 
 Before joining CityU, I received my B.E. in Statistics from Central South University.
 
-My research interests lie at the intersection of statistical machine learning, optimization problems, and artificial intelligence.
+My research interests include machine learning, optimization, and deep learning.
